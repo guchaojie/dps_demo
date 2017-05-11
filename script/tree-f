@@ -1,0 +1,29 @@
+#
+#                               TV:40000 -----------------------------------> light:40001
+#                               /                                                       \
+#                          curtain:40003 -------> fan:40004 -------> light1:40005 -------> light2:40006 
+#                               \                                                    /
+#                                \                                                  /
+#                                               light3:40007 
+#
+#
+#
+#
+
+killall subscriber
+
+subscriber -l 40006 -d "light2" &
+sleep 1
+subscriber -l 40005 -p 40006 -d "light1" &
+sleep 1
+subscriber -l 40001 -p 40006 -d "light" &
+sleep 1
+subscriber -l 40000 -p 40001 -d "TV" &
+sleep 1
+subscriber -l 40004 -p 40005 -d "fan" &
+sleep 1
+subscriber -l 40007 -p 40006 -d "light3" &
+sleep 1
+subscriber -l 40003 -p 40000 -p 40004 -p 40007 -d "curtain" &
+sleep 1
+
