@@ -12,19 +12,19 @@
 
 killall subscriber
 
-subscriber -l 40006 -d "light2" &
+./script/subscriber -l 40006 -d "light2" &
 sleep 1
-subscriber -l 40005 -p 40006 -d "light1" &
+./script/subscriber -l 40005 -p 40006 -d "light1" &
 sleep 1
-subscriber -l 40001 -p 40006 -d "light" &
+./script/subscriber -l 40001 -p 40006 -d "light" &
 sleep 1
-subscriber -l 40000 -p 40001 -d "TV" &
+./script/subscriber -l 40000 -p 40001 -d "TV" &
 sleep 1
-subscriber -l 40004 -p 40005 -d "fan" &
+./script/subscriber -l 40004 -p 40005 -d "fan" &
 sleep 1
-subscriber -l 40007 -p 40006 -d "light3" &
+./script/subscriber -l 40007 -p 40006 -d "light3" &
 sleep 1
-subscriber -l 40003 -p 40000 -p 40004 -p 40007 -d "curtain" &
+./script/subscriber -l 40003 -p 40000 -p 40004 -p 40007 -d "curtain" &
 sleep 1
-subscriber -l 40002 -p 40006 -d "door" &
+./script/subscriber -l 40002 -p 40006 -d "door" &
 sleep 1
