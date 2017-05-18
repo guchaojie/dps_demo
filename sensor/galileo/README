@@ -1,3 +1,5 @@
 gpio12 is galileo's pin1
 gpio61 is galileo's pin2
 gpio6 is galileo's pin4
+
+sudo minicom -D /dev/ttyUSB0
