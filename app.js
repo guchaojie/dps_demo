@@ -11,7 +11,7 @@ function CreateImage() {
     console.log("create image now!");
     setTimeout(function(){
      exec('./script/dps_graph.pl | dot -Tpng -o ./public/images/graph.png',
-           {'cwd':'/home/guchaojie/work/server','uid':1000,'gid':1000},
+           {'uid':1000,'gid':1000},
            function (error, stdout, stderr) {
               console.log('stdout: ' + stdout);
 	          console.log('stderr: ' + stderr);
