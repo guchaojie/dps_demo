@@ -28,4 +28,4 @@ sleep 2
 sleep 2
 ./script/publisher "door_61" -m "lighton" &
 sleep 2
-
+echo "pub-4 finished"

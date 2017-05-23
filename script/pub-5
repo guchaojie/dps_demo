@@ -26,6 +26,6 @@ sleep 2
 sleep 2
 ./script/publisher "curtain_12" -m "lighton" &
 sleep 2
-
+echo "pub-5 finished"
 
 

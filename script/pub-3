@@ -11,4 +11,4 @@ killall publisher
 
 ./script/publisher "TV_12" -m "lighton" &
 sleep 2
-
+echo "pub-3 finished"

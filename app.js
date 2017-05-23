@@ -15,7 +15,7 @@ imagetable.put(index, 'graph.png');
 function CreateImage() {
     console.log("create image now!");
     setTimeout(function(){
-     exec('./script/dps_graph.pl | dot -Tpng -o ./public/images/graph.png',
+    exec('./script/dps_graph.pl | dot -Tpng -o ./public/images/graph.png',
            {'uid':1000,'gid':1000},
            function (error, stdout, stderr) {
               console.log('stdout: ' + stdout);
@@ -24,7 +24,12 @@ function CreateImage() {
 	          console.log('exec error: ' + error);
                   return;
 	      }
-              spawn_sync('sh', ['./script/pub-'+ index%7], {'uid':1000,'gid':1000});
+             var result = spawn_sync('sh', ['./script/pub-'+ index%7], {'uid':1000,'gid':1000});
+             console.log(result.stdout.toString());
+             console.log(result.stderr.toString());
+             if(result.status){
+                console.log('Publish failure.');
+             }
               index++;
               setTimeout(run, 1000);
 	   });
