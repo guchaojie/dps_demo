@@ -1,0 +1,31 @@
+#
+#                               TV:40000 -----------------------------------> light:40001
+#                               /                                                       \
+#                          curtain:40003 -------> fan:40004 -------> light1:40005 -------> light2:40006 
+#                               \                                                    /
+#                                \                                                  /
+#                                               light3:40007 
+#
+#
+#
+#
+
+killall publisher
+
+./script/publisher "light2_61" -m "lighton" &
+sleep 2
+./script/publisher "light1_12" -m "lighton" &
+sleep 2
+./script/publisher "light_61" -m "lighton" &
+sleep 2
+./script/publisher "TV_12" -m "lighton" &
+sleep 2
+./script/publisher "fan_61" -m "lighton" &
+sleep 2
+./script/publisher "light3_12" -m "lighton" &
+sleep 2
+./script/publisher "curtain_12" -m "lighton" &
+sleep 2
+
+
+

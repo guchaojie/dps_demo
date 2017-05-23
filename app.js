@@ -4,8 +4,13 @@ var express=require('express'),
     path = require('path');
     exec = require('child_process').exec;
     spawn = require('child_process').spawn;
+    spawn_sync = require('child_process').spawnSync;
+    HashTable = require('hashtable');
 
 var index = 0;
+var imagetable = new HashTable();
+imagetable.put(index, 'graph.png');
+
 
 function CreateImage() {
     console.log("create image now!");
@@ -14,10 +19,12 @@ function CreateImage() {
            {'uid':1000,'gid':1000},
            function (error, stdout, stderr) {
               console.log('stdout: ' + stdout);
-	          console.log('stderr: ' + stderr);
-	          if (error !== null) {
-	             console.log('exec error: ' + error);
-			  }
+	      console.log('stderr: ' + stderr);
+	      if (error !== null) {
+	          console.log('exec error: ' + error);
+                  return;
+	      }
+              spawn_sync('sh', ['./script/pub-'+ index%7], {'uid':1000,'gid':1000});
               index++;
               setTimeout(run, 1000);
 	   });
@@ -54,7 +61,8 @@ function run() {
       console.log('/script/tree-'+ index%7 + ' exited with code ' + code);
 	  CreateImage();
     });
-
+ 
+    
 }
 
 setTimeout(run, 2000);

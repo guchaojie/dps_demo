@@ -1,0 +1,14 @@
+#
+#                               TV:40000 -----------------------------------> light:40001
+#                               /                                                       \
+# door:40002 ------> curtain:40003 -------> fan:40004 -------> light1:40005 -------> light2:40006 -------> light3:40007 
+#
+#
+#
+#
+
+killall publisher
+
+./script/publisher "TV_12" -m "lighton" &
+sleep 2
+
