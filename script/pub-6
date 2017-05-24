@@ -12,20 +12,21 @@
 
 killall publisher
 
-./script/publisher "light2_61" -m "lighton" &
+./script/publisher -h 192.168.1.109 -p 40000 "light2_61" -m "lighton" &
 sleep 2
-./script/publisher "light1_12" -m "lighton" &
+./script/publisher -h 192.168.1.109 -p 40000 "light1_12" -m "lighton" &
 sleep 2
-./script/publisher "light_61" -m "lighton" &
+./script/publisher -h 192.168.1.101 -p 40001 "light_61" -m "lighton"&
 sleep 2
-./script/publisher "TV_12" -m "lighton" &
+./script/publisher -h 192.168.1.111 -p 40002 "TV_12" -m "lighton" &
 sleep 2
-./script/publisher "fan_61" -m "lighton" &
+./script/publisher -h 192.168.1.111 -p 40002 "fan_61" -m "lighton" &
 sleep 2
-./script/publisher "light3_12" -m "lighton" &
+./script/publisher -h 192.168.1.101 -p 40001 "light3_12" -m "lighton" &
 sleep 2
-./script/publisher "curtain_12" -m "lighton" &
+./script/publisher -h 192.168.1.112 -p 40003 "curtain_12" -m "lighton" &
 sleep 2
-./script/publisher "door_61" -m "lighton" &
+./script/publisher -h 192.168.1.112 -p 40003 "door_61" -m "lighton" &
 sleep 2
 echo "pub-6 finished"
+
