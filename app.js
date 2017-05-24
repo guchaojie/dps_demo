@@ -8,8 +8,11 @@ var express=require('express'),
     HashTable = require('hashtable');
 
 var index = 0;
-var imagetable = new HashTable();
-imagetable.put(index, 'graph.png');
+var response;
+
+function copyFile(src, dist) {
+  fs.writeFileSync(dist, fs.readFileSync(src));
+}
 
 function LightTopology(index) {
     var result = spawn_sync('sh', ['./script/pub-'+ index%7], {'uid':1000,'gid':1000});
@@ -40,6 +43,10 @@ function CreateImage(index) {
 	   }
        
            console.log('file size is ', stats.size);
+           if (stats.size > 18000) {
+             // copyFile('./public/images/graph.jpg', './public/images/tree_' + index%7 + '.jpg');
+              response.send("" + index);
+           }
        
        })
 
@@ -58,6 +65,10 @@ app.get("/", function(req, res) {
   res.sendFile(__dirname + "/public/home.html");
 });
 
+app.get("/data", function(req, res) {
+   console.log("data coming");
+   response = res;
+});
 
 function run() {
     sh  = spawn('sh', ['./script/tree-'+ index%7], {'uid':1000,'gid':1000});
@@ -73,7 +84,7 @@ function run() {
     sh.on('exit', function (code) {
         console.log('/script/tree-'+ index%7 + ' exited with code ' + code);
 	CreateImage(index);
-	LightTopology(index);
+	setTimeout(LightTopology(index), 1000);
 	index++;
         setTimeout(run, 1000);
     });

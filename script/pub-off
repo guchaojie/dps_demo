@@ -13,19 +13,19 @@
 killall publisher
 
 ./script/publisher -h 192.168.1.109 -p 40000 "light2_61" -m "lightoff" &
-sleep 2
+sleep 1
 ./script/publisher -h 192.168.1.109 -p 40000 "light1_12" -m "lightoff" &
-sleep 2
+sleep 1
 ./script/publisher -h 192.168.1.101 -p 40001 "light_61" -m "lightoff" &
-sleep 2
+sleep 1
 ./script/publisher -h 192.168.1.111 -p 40002  "TV_12" -m "lightoff" &
-sleep 2
+sleep 1
 ./script/publisher  -h 192.168.1.111 -p 40002 "fan_61" -m "lightoff" &
-sleep 2
+sleep 1
 ./script/publisher -h 192.168.1.101 -p 40001 "light3_12" -m "lightoff" &
-sleep 2
+sleep 1
 ./script/publisher -h 192.168.1.112 -p 40003 "curtain_12" -m "lightoff" &
-sleep 2
+sleep 1
 ./script/publisher -h 192.168.1.112 -p 40003 "door_61" -m "lightoff" &
-sleep 2
+sleep 1
 
