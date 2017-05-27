@@ -5,6 +5,7 @@ body {
     overflow-y:scroll;
     overflow-y:auto \9; /* IE6 IE7 IE8 */
     overflow-y:auto \0; /* IE8 IE9 */
+	background-position:center;
 }
 
 hr {
@@ -28,7 +29,7 @@ hr {
     /* font: normal .8em/1.5em Georgia, Arial, Verdana, Helvetica, sans-serif;
     font-size:16px;*/
     float:left;
-    width:85%;
+    width:100%;
     *width:80%;
     min-height: 30em;
     padding:20px;
