@@ -15,14 +15,134 @@
     <body background="images/BG.jpg">
         <div id="container">
             <a href="home.html"><img border="0" src="images/banner.jpg" width=100% height="70px"></a>
-		<div id="content">
-		     <img id="dpsimage" src=images/tree_0.png style="display:block;margin:auto; padding-top: 10px;"/>
-		</div>
+			<div id="content">
+				<label class="switch" style = "left: -200px; top: 300px;">
+					<input type="checkbox" id="light1"><div class="slider round"></div>
+				</label>
+				<label class="switch" style = "left: -200px; top: 370px;">
+					<input type="checkbox" id="light2"><div class="slider round"></div>
+				</label>
+				<label class="switch" style = "left: -200px; top: 440px;">
+					<input type="checkbox" id="light3"><div class="slider round"></div>
+				</label>
+				<label class="switch" style = "left: -200px; top: 510px;">
+					<input type="checkbox" id="fan"><div class="slider round"></div>
+				</label>
+				<label class="switch" style = "right: -200px; top: 165px;">
+					<input type="checkbox" id="TV"><div class="slider round"></div>
+				</label>
+				<label class="switch" style = "right: -200px; top: 235px;">
+					<input type="checkbox" id="curtain"><div class="slider round"></div>
+				</label>
+				<label class="switch" style = "right: -200px; top: 305px;">
+					<input type="checkbox" id="door"><div class="slider round"></div>
+				</label>		
+				<label class="switch" style = "right: -200px; top: 375px;">
+					<input type="checkbox" id="light"><div class="slider round"></div>
+				</label>
+				<img src=images/light1.png style="position: relative; display:block;margin:auto; left: -320px; top: -1px;"/>
+				<img src=images/light2.png style="position: relative; display:block;margin:auto; left: -320px; top: 2px;"/>
+				<img src=images/light3.png style="position: relative; display:block;margin:auto; left: -320px; top: 15px;"/>
+				<img src=images/fan.png style="position: relative; display:block;margin:auto; left: -320px; top: 38px;"/>
+				<img src=images/TV.png style="position: relative; display:block;margin:auto; right: -90px; top: -350px;"/>
+				<img src=images/curtain.png style="position: relative; display:block;margin:auto; right: -90px; top: -310px;"/>
+				<img src=images/door.png style="position: relative; display:block;margin:auto; right: -90px; top: -270px;"/>
+				<img src=images/light1.png style="position: relative; display:block;margin:auto; right: -90px; top: -240px;"/>
+			</div>
         </div>      
     </body>
     <script>
-	      var xhr = new XMLHttpRequest();
-            xhr.open("GET", "./refresh", true);
+			var xhr = new XMLHttpRequest();
+            xhr.open("GET", "./control", true);
             xhr.send();
+
+            window.addEventListener('unload', goodbye, false);
+
+            function goodbye() {
+               navigator.sendBeacon("/restart", null);
+            }        
+
+            document.getElementById("light1").onclick = function() {
+				var xhr = new XMLHttpRequest();
+				if (this.checked) {
+				   xhr.open("GET", "./light1?data=" + "1", true);
+				} else {
+				   xhr.open("GET", "./light1?data=" + "0", true);
+				}
+				xhr.send();
+            }
+			
+			document.getElementById("light2").onclick = function() {
+				var xhr = new XMLHttpRequest();
+				if (this.checked) {
+					xhr.open("GET", "./light2?data=" + "1", true);
+				} else {
+					xhr.open("GET", "./light2?data=" + "0", true);
+				}
+				xhr.send();
+            }
+			
+			document.getElementById("light3").onclick = function() {
+				var xhr = new XMLHttpRequest();
+				if (this.checked) {
+					xhr.open("GET", "./light3?data=" + "1", true);
+				} else {
+					xhr.open("GET", "./light3?data=" + "0", true);
+				}
+				xhr.send();
+            }
+			
+			 document.getElementById("fan").onclick = function() {
+				var xhr = new XMLHttpRequest();
+				if (this.checked) {
+					xhr.open("GET", "./fan?data=" + "1", true);
+				} else {
+					xhr.open("GET", "./fan?data=" + "0", true);
+				}
+				xhr.send();
+            }
+			
+			document.getElementById("TV").onclick = function() {
+				var xhr = new XMLHttpRequest();
+				if (this.checked) {
+					xhr.open("GET", "./TV?data=" + "1", true);
+				} else {
+					xhr.open("GET", "./TV?data=" + "0", true);
+				}
+				xhr.send();
+            }
+			
+			document.getElementById("curtain").onclick = function() {
+				var xhr = new XMLHttpRequest();
+				if (this.checked) {
+					xhr.open("GET", "./curtain?data=" + "1", true);
+				} else {
+					xhr.open("GET", "./curtain?data=" + "0", true);
+				}
+				xhr.send();
+            }
+			
+			document.getElementById("door").onclick = function() {
+				var xhr = new XMLHttpRequest();
+				if (this.checked) {
+					xhr.open("GET", "./door?data=" + "1", true);
+				} else {
+					xhr.open("GET", "./door?data=" + "0", true);
+				}
+				xhr.send();
+            }
+			
+			document.getElementById("light").onclick = function() {
+				var xhr = new XMLHttpRequest();
+				if (this.checked) {
+					xhr.open("GET", "./light?data=" + "1", true);
+				} else {
+					xhr.open("GET", "./light?data=" + "0", true);
+				}
+				xhr.send();
+            }
+			
+			
+
     </script>
 </html>

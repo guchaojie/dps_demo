@@ -4,13 +4,13 @@ var fs = require('fs'),
     spawn_sync = require('child_process').spawnSync;
 	
 var index = 0;
-var created = 0;
-var response;
+
 
 function copyFile(src, dist) {
   fs.writeFileSync(dist, fs.readFileSync(src));
 }
 
+// parameter index input need use spawn_sync to make sure the pub over then to do next thing sequently
 function LightTopology(index) {
     console.log("light topology now!");
 
@@ -80,11 +80,11 @@ function run() {
 
     sh.on('exit', function (code) {
         console.log('/script/tree-'+ index%7 + ' exited with code ' + code);
-	CreateImage(index);
+	    CreateImage(index);
         call(index);
-	index++;
-	setTimeout(run, 3000);
-    });
- 
+		index++;
+		setTimeout(run, 3000);
+
+     });
     
 }
