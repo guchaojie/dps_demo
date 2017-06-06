@@ -1,0 +1,3 @@
+source ./script/node_ip.sh
+
+killall publisher

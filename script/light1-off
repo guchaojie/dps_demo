@@ -1,0 +1,5 @@
+source ./script/node_ip.sh
+
+killall publisher
+
+./script/publisher -h $light1_ip -p $light1_port "light1_12" -m "lightoff" &

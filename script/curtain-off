@@ -1,0 +1,4 @@
+source ./script/node_ip.sh
+
+killall publisher
+./script/publisher -h $curtain_ip -p $curtain_port "curtain_12" -m "lightoff" &
