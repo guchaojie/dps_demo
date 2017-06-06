@@ -190,7 +190,7 @@ app.get("/door", function(req, res) {
 				}
 		});
 	else
-		exec('./script/door-Off', 
+		exec('./script/door-off', 
 			function (error, stdout, stderr) {
 				console.log('stdout: ' + stdout);
 				console.log('stderr: ' + stderr);

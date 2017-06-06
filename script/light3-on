@@ -1,5 +1,3 @@
 source ./script/node_ip.sh
 
-killall publisher
-
 ./script/publisher -h $light3_ip -p $light3_port "light3_12" -m "lighton" &

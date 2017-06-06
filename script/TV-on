@@ -1,5 +1,3 @@
 source ./script/node_ip.sh
 
-killall publisher
-
 ./script/publisher -h $TV_ip -p $TV_port "TV_12" -m "lighton" &
